@@ -9,8 +9,8 @@ from google_images_search import GoogleImagesSearch
 from pydub import AudioSegment
 from pydub.playback import play
 
-realtor_data = pd.read_csv('/Users/vovidze/Downloads/realtor-data.csv')
-zip_data = pd.read_csv('/Users/vovidze/Downloads/zips.txt', sep=',', names=['ZIP', 'LAT', 'LNG'])
+realtor_data = pd.read_csv('realtor-data.csv')
+zip_data = pd.read_csv('zips.txt', sep=',', names=['ZIP', 'LAT', 'LNG'])
 
 realtor_data['zip_code'] = realtor_data['zip_code'].astype(str).str.split('.').str[0].str.zfill(5)
 
@@ -117,6 +117,6 @@ else:
 st.write("Ура! Вы подобрали для себя идеальную недвижимость!")
 
 if st.button("Отпразднуем!"):
-    audio_file = open('/Users/vovidze/Downloads/Rick_Astley_-_Never_Gonna_Give_You_Up_47958276.mp3', 'rb')
+    audio_file = open('Music.mp3', 'rb')
     audio_bytes = audio_file.read()
     st.audio(audio_bytes)
